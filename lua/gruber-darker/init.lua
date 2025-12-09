@@ -26,36 +26,30 @@ local colors = {
 	wisteria = "#afafda",
 }
 
-local terminal_colors = {
-	terminal_color_0 = colors.bg_3,
-	terminal_color_1 = colors.red_minus_1,
-	terminal_color_2 = colors.green,
-	terminal_color_3 = colors.yellow,
-	terminal_color_4 = colors.niagara,
-	terminal_color_5 = colors.wisteria,
-	terminal_color_6 = colors.quartz,
-	terminal_color_7 = colors.fg,
-	terminal_color_8 = colors.bg_4,
-	terminal_color_9 = colors.red_minus_1,
-	terminal_color_10 = colors.green,
-	terminal_color_11 = colors.yellow,
-	terminal_color_12 = colors.niagara,
-	terminal_color_13 = colors.wisteria,
-	terminal_color_14 = colors.quartz,
-	terminal_color_15 = colors.white,
-}
-
 function M.setup(opts)
 	opts = opts or {}
-	vim.cmd("hi clear")
+	vim.cmd.highlight("clear")
 	if vim.fn.exists("syntax_on") then
-		vim.cmd("syntax reset")
+		vim.cmd.syntax("reset")
 	end
 	vim.o.termguicolors = true
 	vim.g.colors_name = "gruber-darker"
-	for k, v in pairs(terminal_colors) do
-		vim.g[k] = v
-	end
+	vim.g.terminal_color_0 = colors.bg_3
+	vim.g.terminal_color_1 = colors.red_minus_1
+	vim.g.terminal_color_2 = colors.green
+	vim.g.terminal_color_3 = colors.yellow
+	vim.g.terminal_color_4 = colors.niagara
+	vim.g.terminal_color_5 = colors.wisteria
+	vim.g.terminal_color_6 = colors.quartz
+	vim.g.terminal_color_7 = colors.fg
+	vim.g.terminal_color_8 = colors.bg_4
+	vim.g.terminal_color_9 = colors.red_minus_1
+	vim.g.terminal_color_10 = colors.green
+	vim.g.terminal_color_11 = colors.yellow
+	vim.g.terminal_color_12 = colors.niagara
+	vim.g.terminal_color_13 = colors.wisteria
+	vim.g.terminal_color_14 = colors.quartz
+	vim.g.terminal_color_15 = colors.white
 end
 
 ---@type table<string, vim.api.keyset.highlight>
