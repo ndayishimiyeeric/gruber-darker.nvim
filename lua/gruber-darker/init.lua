@@ -2,7 +2,7 @@ local M = {}
 
 -- Color palette
 local colors = {
-	fg = "#e4e4e4",
+	fg = "#ffffff",
 	fg_1 = "#f4f4ff",
 	fg_2 = "#f5f5f5",
 	white = "#ffffff",
@@ -16,13 +16,13 @@ local colors = {
 	red_minus_1 = "#c73c3f",
 	red = "#f43841",
 	red_1 = "#ff4f58",
-	green = "#73c936",
+	green = "#42dc00",
 	yellow = "#ffdb00",
 	brown = "#cc8c3c",
 	quartz = "#95a99f",
 	niagara_minus_2 = "#303540",
 	niagara_minus_1 = "#565f73",
-	niagara = "#96a6c8",
+	niagara = "#92a7cb",
 	wisteria = "#afafda",
 }
 
