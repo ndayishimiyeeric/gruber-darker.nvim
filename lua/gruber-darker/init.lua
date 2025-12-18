@@ -2,26 +2,17 @@ local M = {}
 
 -- Color palette
 local colors = {
+	bg = "#17181A",
+	bg_alt = "#1e2124",
 	fg = "#ffffff",
-	fg_1 = "#f4f4ff",
-	fg_2 = "#f5f5f5",
-	white = "#ffffff",
-	black = "#000000",
-	bg_minus_1 = "#101010",
-	bg = "#181818",
-	bg_1 = "#282828",
-	bg_2 = "#453d41",
-	bg_3 = "#484848",
-	bg_4 = "#54494e",
-	red_minus_1 = "#c73c3f",
-	red = "#f43841",
-	red_1 = "#ff4f58",
+	red = "#c73c3f", -- or #f43841
+	black = "#101010",
 	green = "#42dc00",
 	yellow = "#ffdb00",
 	brown = "#cc8c3c",
 	quartz = "#95a99f",
-	niagara_minus_2 = "#303540",
-	niagara_minus_1 = "#565f73",
+	grey = "#303540",
+	grey_alt = "#565f73",
 	niagara = "#92a7cb",
 	wisteria = "#afafda",
 }
@@ -35,67 +26,68 @@ function M.setup(config)
 
 	vim.o.termguicolors = true
 	vim.g.colors_name = "gruber-darker"
-	vim.g.terminal_color_0 = colors.bg_3
-	vim.g.terminal_color_1 = colors.red_minus_1
+	vim.g.terminal_color_0 = colors.bg
+	vim.g.terminal_color_1 = colors.red
 	vim.g.terminal_color_2 = colors.green
 	vim.g.terminal_color_3 = colors.yellow
 	vim.g.terminal_color_4 = colors.niagara
 	vim.g.terminal_color_5 = colors.wisteria
 	vim.g.terminal_color_6 = colors.quartz
 	vim.g.terminal_color_7 = colors.fg
-	vim.g.terminal_color_8 = colors.bg_4
-	vim.g.terminal_color_9 = colors.red_minus_1
+	vim.g.terminal_color_8 = colors.grey
+	vim.g.terminal_color_9 = colors.red
 	vim.g.terminal_color_10 = colors.green
 	vim.g.terminal_color_11 = colors.yellow
 	vim.g.terminal_color_12 = colors.niagara
 	vim.g.terminal_color_13 = colors.wisteria
 	vim.g.terminal_color_14 = colors.quartz
-	vim.g.terminal_color_15 = colors.white
+	vim.g.terminal_color_15 = colors.fg
 
 	---@type table<string, vim.api.keyset.highlight>
 	local groups = {
 		-- Editor
 		Normal = { fg = colors.fg, bg = colors.bg },
-		NormalFloat = { fg = colors.fg, bg = colors.bg_1 },
-		ColorColumn = { bg = colors.bg_1 },
+		ColorColumn = { bg = colors.bg_alt },
 		Cursor = { bg = colors.yellow },
-		CursorColumn = { bg = colors.bg_1 },
-		CursorLine = { bg = colors.bg_1 },
-		CursorLineNr = { fg = colors.yellow, bg = colors.bg_1 },
-		LineNr = { fg = colors.bg_4 },
-		VertSplit = { fg = colors.bg_2 },
-		WinSeparator = { fg = colors.bg_2 },
-		Folded = { fg = colors.brown, bg = colors.bg_1 },
+		CursorColumn = { bg = colors.bg_alt },
+		CursorLine = { bg = colors.bg_alt },
+		CursorLineNr = { fg = colors.yellow, bg = colors.bg_alt },
+		LineNr = { fg = colors.grey },
+		VertSplit = { fg = colors.grey },
+		WinSeparator = { fg = colors.grey },
+		Folded = { fg = colors.brown, bg = colors.bg_alt },
 		FoldColumn = { fg = colors.brown, bg = colors.bg },
-		SignColumn = { fg = colors.bg_2, bg = colors.bg },
+		SignColumn = { fg = colors.grey, bg = colors.bg },
 
 		-- Statusline
-		StatusLine = { fg = colors.white, bg = colors.bg_1 },
-		StatusLineNC = { fg = colors.quartz, bg = colors.bg_1 },
+		StatusLine = { fg = colors.fg, bg = colors.bg_alt },
+		StatusLineNC = { fg = colors.quartz, bg = colors.bg_alt },
 
 		-- Tabline
-		TabLine = { fg = colors.bg_4, bg = colors.bg_1 },
-		TabLineFill = { bg = colors.bg_1 },
+		TabLine = { fg = colors.grey, bg = colors.bg_alt },
+		TabLineFill = { bg = colors.bg_alt },
 		TabLineSel = { fg = colors.yellow, bg = colors.bg, bold = true },
 
 		-- Popups
-		Pmenu = { fg = colors.fg, bg = colors.bg_1 },
-		PmenuSel = { fg = colors.fg, bg = colors.bg_minus_1 },
-		PmenuSbar = { bg = colors.bg_2 },
-		PmenuThumb = { bg = colors.bg_minus_1 },
+		Pmenu = { fg = colors.fg, bg = colors.bg_alt },
+		PmenuSel = { fg = colors.fg, bg = colors.bg_alt },
+		PmenuSbar = { bg = colors.grey },
+		PmenuThumb = { bg = colors.black },
+		NormalFloat = { fg = colors.fg, bg = colors.bg_alt },
+		FloatBorder = { fg = colors.grey },
 
 		-- Search
-		Search = { fg = colors.black, bg = colors.fg_2 },
-		IncSearch = { fg = colors.black, bg = colors.fg_2 },
-		CurSearch = { fg = colors.black, bg = colors.fg_2 },
-		Substitute = { fg = colors.black, bg = colors.red },
+		Search = { fg = colors.black, bg = colors.niagara },
+		IncSearch = { fg = colors.black, bg = colors.niagara },
+		CurSearch = { fg = colors.black, bg = colors.niagara },
+		Substitute = { fg = colors.fg, bg = colors.red },
 
 		-- Visual
-		Visual = { bg = colors.bg_3 },
-		VisualNOS = { bg = colors.bg_3 },
+		Visual = { bg = colors.grey_alt },
+		VisualNOS = { bg = colors.grey_alt },
 
 		-- Messages
-		ErrorMsg = { fg = colors.red_1 },
+		ErrorMsg = { fg = colors.red },
 		WarningMsg = { fg = colors.yellow },
 		ModeMsg = { fg = colors.green },
 		MoreMsg = { fg = colors.green },
@@ -104,8 +96,8 @@ function M.setup(config)
 		-- Diff
 		DiffAdd = { fg = colors.green, bg = nil },
 		DiffChange = { fg = colors.yellow, bg = nil },
-		DiffDelete = { fg = colors.red_1, bg = nil },
-		DiffText = { fg = colors.yellow, bg = colors.bg_2 },
+		DiffDelete = { fg = colors.red, bg = nil },
+		DiffText = { fg = colors.yellow, bg = colors.grey },
 
 		-- Spelling
 		SpellBad = { sp = colors.red, undercurl = true },
@@ -115,14 +107,14 @@ function M.setup(config)
 
 		-- Misc
 		Directory = { fg = colors.niagara, bold = true },
-		NonText = { fg = colors.bg_2 },
-		SpecialKey = { fg = colors.bg_2 },
+		NonText = { fg = colors.grey },
+		SpecialKey = { fg = colors.grey },
 		Title = { fg = colors.niagara, bold = true },
-		Conceal = { fg = colors.bg_4 },
-		Ignore = { fg = colors.bg_4 },
-		MatchParen = { bg = colors.bg_4 },
+		Conceal = { fg = colors.grey },
+		Ignore = { fg = colors.grey },
+		MatchParen = { bg = colors.grey },
 		Underlined = { fg = colors.niagara, underline = true },
-		QuickFixLine = { bg = colors.bg_1 },
+		QuickFixLine = { bg = colors.bg_alt },
 
 		-- Syntax highlighting
 		Comment = { fg = colors.brown },
@@ -133,16 +125,16 @@ function M.setup(config)
 		Boolean = { fg = colors.quartz },
 		Float = { fg = colors.wisteria },
 
-		Identifier = { fg = colors.fg_1 },
+		Identifier = { fg = colors.fg },
 		Function = { fg = colors.niagara },
 
-		Statement = { fg = colors.yellow, bold = true },
-		Conditional = { fg = colors.yellow, bold = true },
-		Repeat = { fg = colors.yellow, bold = true },
-		Label = { fg = colors.yellow, bold = true },
+		Statement = { fg = colors.yellow, bold = false },
+		Conditional = { fg = colors.yellow, bold = false },
+		Repeat = { fg = colors.yellow, bold = false },
+		Label = { fg = colors.yellow, bold = false },
 		Operator = { fg = colors.fg },
-		Keyword = { fg = colors.yellow, bold = true },
-		Exception = { fg = colors.yellow, bold = true },
+		Keyword = { fg = colors.yellow, bold = false },
+		Exception = { fg = colors.yellow, bold = false },
 
 		PreProc = { fg = colors.quartz },
 		Include = { fg = colors.quartz },
@@ -163,7 +155,7 @@ function M.setup(config)
 		Debug = { fg = colors.red },
 
 		Error = { fg = colors.red },
-		Todo = { fg = colors.yellow, bold = true },
+		Todo = { fg = colors.yellow, bold = false },
 
 		-- TreeSitter
 		["@annotation"] = { fg = colors.quartz },
@@ -180,32 +172,32 @@ function M.setup(config)
 		["@debug"] = { fg = colors.red },
 		["@define"] = { fg = colors.quartz },
 		["@error"] = { fg = colors.red },
-		["@exception"] = { fg = colors.yellow, bold = true },
-		["@field"] = { fg = colors.fg_1 },
+		["@exception"] = { fg = colors.yellow, bold = false },
+		["@field"] = { fg = colors.fg },
 		["@float"] = { fg = colors.wisteria },
 		["@function"] = { fg = colors.niagara },
 		["@function.builtin"] = { fg = colors.yellow },
 		["@function.call"] = { fg = colors.niagara },
 		["@function.macro"] = { fg = colors.quartz },
 		["@include"] = { fg = colors.quartz },
-		["@keyword"] = { fg = colors.yellow, bold = true },
-		["@keyword.function"] = { fg = colors.yellow, bold = true },
-		["@keyword.operator"] = { fg = colors.yellow, bold = true },
-		["@keyword.return"] = { fg = colors.yellow, bold = true },
-		["@label"] = { fg = colors.yellow, bold = true },
+		["@keyword"] = { fg = colors.yellow, bold = false },
+		["@keyword.function"] = { fg = colors.yellow, bold = false },
+		["@keyword.operator"] = { fg = colors.yellow, bold = false },
+		["@keyword.return"] = { fg = colors.yellow, bold = false },
+		["@label"] = { fg = colors.yellow, bold = false },
 		["@method"] = { fg = colors.niagara },
 		["@method.call"] = { fg = colors.niagara },
 		["@namespace"] = { fg = colors.quartz },
 		["@none"] = { fg = colors.fg },
 		["@number"] = { fg = colors.wisteria },
 		["@operator"] = { fg = colors.fg },
-		["@parameter"] = { fg = colors.fg_1 },
-		["@parameter.reference"] = { fg = colors.fg_1 },
-		["@property"] = { fg = colors.fg_1 },
+		["@parameter"] = { fg = colors.fg },
+		["@parameter.reference"] = { fg = colors.fg },
+		["@property"] = { fg = colors.fg },
 		["@punctuation.bracket"] = { fg = colors.fg },
 		["@punctuation.delimiter"] = { fg = colors.fg },
 		["@punctuation.special"] = { fg = colors.yellow },
-		["@repeat"] = { fg = colors.yellow, bold = true },
+		["@repeat"] = { fg = colors.yellow, bold = false },
 		["@string"] = { fg = colors.green },
 		["@string.escape"] = { fg = colors.yellow },
 		["@string.regex"] = { fg = colors.yellow },
@@ -222,7 +214,7 @@ function M.setup(config)
 		["@text.reference"] = { fg = colors.niagara, underline = true },
 		["@text.strong"] = { bold = true },
 		["@text.title"] = { fg = colors.niagara, bold = true },
-		["@text.todo"] = { fg = colors.yellow, bold = true },
+		["@text.todo"] = { fg = colors.yellow, bold = false },
 		["@text.underline"] = { underline = true },
 		["@text.uri"] = { fg = colors.niagara, underline = true },
 		["@text.warning"] = { fg = colors.yellow },
@@ -230,17 +222,17 @@ function M.setup(config)
 		["@type.builtin"] = { fg = colors.quartz },
 		["@type.definition"] = { fg = colors.quartz },
 		["@type.qualifier"] = { fg = colors.quartz },
-		["@variable"] = { fg = colors.fg_1 },
+		["@variable"] = { fg = colors.fg },
 		["@variable.builtin"] = { fg = colors.yellow },
 
 		-- LSP
-		LspReferenceText = { bg = colors.bg_1 },
-		LspReferenceRead = { bg = colors.bg_1 },
-		LspReferenceWrite = { bg = colors.bg_1 },
-		LspSignatureActiveParameter = { bg = colors.bg_2 },
+		LspReferenceText = { bg = colors.bg_alt },
+		LspReferenceRead = { bg = colors.bg_alt },
+		LspReferenceWrite = { bg = colors.bg_alt },
+		LspSignatureActiveParameter = { bg = colors.grey },
 		LspCodeLens = { fg = colors.brown },
-		LspCodeLensSeparator = { fg = colors.bg_4 },
-		LspInfoBorder = { fg = colors.bg_2 },
+		LspCodeLensSeparator = { fg = colors.grey },
+		LspInfoBorder = { fg = colors.grey },
 
 		-- Diagnostics
 		DiagnosticError = { fg = colors.red },
@@ -263,19 +255,19 @@ function M.setup(config)
 		GitSignsAddNr = { fg = colors.green },
 		GitSignsChangeNr = { fg = colors.yellow },
 		GitSignsDeleteNr = { fg = colors.red },
-		GitSignsAddLn = { bg = colors.niagara_minus_2 },
-		GitSignsChangeLn = { bg = colors.bg_2 },
-		GitSignsDeleteLn = { bg = colors.red_minus_1 },
+		GitSignsAddLn = { bg = colors.grey },
+		GitSignsChangeLn = { bg = colors.grey },
+		GitSignsDeleteLn = { bg = colors.red },
 
 		-- Telescope
 		TelescopeNormal = { fg = colors.fg, bg = colors.bg },
-		TelescopeBorder = { fg = colors.bg_2 },
-		TelescopePromptNormal = { fg = colors.fg, bg = colors.bg_1 },
-		TelescopePromptBorder = { fg = colors.bg_2 },
+		TelescopeBorder = { fg = colors.grey },
+		TelescopePromptNormal = { fg = colors.fg, bg = colors.bg_alt },
+		TelescopePromptBorder = { fg = colors.grey },
 		TelescopePromptTitle = { fg = colors.yellow, bold = true },
-		TelescopePreviewTitle = { fg = colors.green, bold = true },
+		TelescopePreviewTitle = { fg = colors.green, bold = false },
 		TelescopeResultsTitle = { fg = colors.niagara, bold = true },
-		TelescopeSelection = { bg = colors.bg_1 },
+		TelescopeSelection = { bg = colors.bg_alt },
 		TelescopeSelectionCaret = { fg = colors.yellow },
 		TelescopeMatching = { fg = colors.yellow, bold = true },
 
@@ -309,17 +301,17 @@ function M.setup(config)
 		WhichKeyGroup = { fg = colors.niagara },
 		WhichKeyDesc = { fg = colors.fg },
 		WhichKeySeparator = { fg = colors.brown },
-		WhichKeyFloat = { bg = colors.bg_1 },
+		WhichKeyFloat = { bg = colors.bg_alt },
 		WhichKeyValue = { fg = colors.green },
 
 		-- Indent Blankline
-		IndentBlanklineChar = { fg = colors.bg_2 },
-		IndentBlanklineContextChar = { fg = colors.bg_4 },
-		IndentBlanklineContextStart = { sp = colors.bg_4, underline = true },
+		IndentBlanklineChar = { fg = colors.grey },
+		IndentBlanklineContextChar = { fg = colors.grey },
+		IndentBlanklineContextStart = { sp = colors.grey, underline = true },
 
 		-- nvim-cmp
 		CmpItemAbbr = { fg = colors.fg },
-		CmpItemAbbrDeprecated = { fg = colors.bg_4, strikethrough = true },
+		CmpItemAbbrDeprecated = { fg = colors.grey, strikethrough = true },
 		CmpItemAbbrMatch = { fg = colors.yellow, bold = true },
 		CmpItemAbbrMatchFuzzy = { fg = colors.yellow },
 		CmpItemKind = { fg = colors.niagara },
@@ -329,13 +321,13 @@ function M.setup(config)
 		HopNextKey = { fg = colors.yellow, bold = true },
 		HopNextKey1 = { fg = colors.green, bold = true },
 		HopNextKey2 = { fg = colors.niagara },
-		HopUnmatched = { fg = colors.bg_4 },
+		HopUnmatched = { fg = colors.grey },
 
 		-- Leap
 		LeapMatch = { fg = colors.yellow, bold = true },
 		LeapLabelPrimary = { fg = colors.black, bg = colors.yellow, bold = true },
 		LeapLabelSecondary = { fg = colors.black, bg = colors.green, bold = true },
-		LeapBackdrop = { fg = colors.bg_4 },
+		LeapBackdrop = { fg = colors.grey },
 
 		-- Dashboard
 		DashboardHeader = { fg = colors.niagara },
@@ -361,48 +353,48 @@ function M.setup(config)
 		NotifyTRACETitle = { fg = colors.wisteria },
 
 		-- Bufferline
-		BufferLineFill = { bg = colors.bg_minus_1 },
-		BufferLineBackground = { fg = colors.bg_4, bg = colors.bg_1 },
-		BufferLineTab = { fg = colors.bg_4, bg = colors.bg_1 },
+		BufferLineFill = { bg = colors.black },
+		BufferLineBackground = { fg = colors.grey, bg = colors.bg_alt },
+		BufferLineTab = { fg = colors.grey, bg = colors.bg_alt },
 		BufferLineTabSelected = { fg = colors.yellow, bg = colors.bg, bold = true },
-		BufferLineBuffer = { fg = colors.bg_4, bg = colors.bg_1 },
+		BufferLineBuffer = { fg = colors.grey, bg = colors.bg_alt },
 		BufferLineBufferVisible = { fg = colors.fg, bg = colors.bg },
 		BufferLineBufferSelected = { fg = colors.yellow, bg = colors.bg, bold = true },
 		BufferLineIndicatorSelected = { fg = colors.yellow },
-		BufferLineSeparator = { fg = colors.bg_minus_1, bg = colors.bg_1 },
-		BufferLineSeparatorVisible = { fg = colors.bg_minus_1, bg = colors.bg },
-		BufferLineSeparatorSelected = { fg = colors.bg_minus_1, bg = colors.bg },
-		BufferLineCloseButton = { fg = colors.bg_4, bg = colors.bg_1 },
-		BufferLineCloseButtonVisible = { fg = colors.bg_4, bg = colors.bg },
+		BufferLineSeparator = { fg = colors.black, bg = colors.bg_alt },
+		BufferLineSeparatorVisible = { fg = colors.black, bg = colors.bg },
+		BufferLineSeparatorSelected = { fg = colors.black, bg = colors.bg },
+		BufferLineCloseButton = { fg = colors.grey, bg = colors.bg_alt },
+		BufferLineCloseButtonVisible = { fg = colors.grey, bg = colors.bg },
 		BufferLineCloseButtonSelected = { fg = colors.red, bg = colors.bg },
-		BufferLineModified = { fg = colors.yellow, bg = colors.bg_1 },
+		BufferLineModified = { fg = colors.yellow, bg = colors.bg_alt },
 		BufferLineModifiedVisible = { fg = colors.yellow, bg = colors.bg },
 		BufferLineModifiedSelected = { fg = colors.yellow, bg = colors.bg },
-		BufferLineDiagnostic = { fg = colors.bg_4, bg = colors.bg_1 },
-		BufferLineDiagnosticVisible = { fg = colors.bg_4, bg = colors.bg },
+		BufferLineDiagnostic = { fg = colors.grey, bg = colors.bg_alt },
+		BufferLineDiagnosticVisible = { fg = colors.grey, bg = colors.bg },
 		BufferLineDiagnosticSelected = { fg = colors.fg, bg = colors.bg },
-		BufferLineError = { fg = colors.red, bg = colors.bg_1 },
+		BufferLineError = { fg = colors.red, bg = colors.bg_alt },
 		BufferLineErrorVisible = { fg = colors.red, bg = colors.bg },
 		BufferLineErrorSelected = { fg = colors.red, bg = colors.bg },
-		BufferLineErrorDiagnostic = { fg = colors.red, bg = colors.bg_1 },
+		BufferLineErrorDiagnostic = { fg = colors.red, bg = colors.bg_alt },
 		BufferLineErrorDiagnosticVisible = { fg = colors.red, bg = colors.bg },
 		BufferLineErrorDiagnosticSelected = { fg = colors.red, bg = colors.bg },
-		BufferLineWarning = { fg = colors.yellow, bg = colors.bg_1 },
+		BufferLineWarning = { fg = colors.yellow, bg = colors.bg_alt },
 		BufferLineWarningVisible = { fg = colors.yellow, bg = colors.bg },
 		BufferLineWarningSelected = { fg = colors.yellow, bg = colors.bg },
-		BufferLineWarningDiagnostic = { fg = colors.yellow, bg = colors.bg_1 },
+		BufferLineWarningDiagnostic = { fg = colors.yellow, bg = colors.bg_alt },
 		BufferLineWarningDiagnosticVisible = { fg = colors.yellow, bg = colors.bg },
 		BufferLineWarningDiagnosticSelected = { fg = colors.yellow, bg = colors.bg },
-		BufferLineInfo = { fg = colors.niagara, bg = colors.bg_1 },
+		BufferLineInfo = { fg = colors.niagara, bg = colors.bg_alt },
 		BufferLineInfoVisible = { fg = colors.niagara, bg = colors.bg },
 		BufferLineInfoSelected = { fg = colors.niagara, bg = colors.bg },
-		BufferLineInfoDiagnostic = { fg = colors.niagara, bg = colors.bg_1 },
+		BufferLineInfoDiagnostic = { fg = colors.niagara, bg = colors.bg_alt },
 		BufferLineInfoDiagnosticVisible = { fg = colors.niagara, bg = colors.bg },
 		BufferLineInfoDiagnosticSelected = { fg = colors.niagara, bg = colors.bg },
-		BufferLineHint = { fg = colors.green, bg = colors.bg_1 },
+		BufferLineHint = { fg = colors.green, bg = colors.bg_alt },
 		BufferLineHintVisible = { fg = colors.green, bg = colors.bg },
 		BufferLineHintSelected = { fg = colors.green, bg = colors.bg },
-		BufferLineHintDiagnostic = { fg = colors.green, bg = colors.bg_1 },
+		BufferLineHintDiagnostic = { fg = colors.green, bg = colors.bg_alt },
 		BufferLineHintDiagnosticVisible = { fg = colors.green, bg = colors.bg },
 		BufferLineHintDiagnosticSelected = { fg = colors.green, bg = colors.bg },
 
