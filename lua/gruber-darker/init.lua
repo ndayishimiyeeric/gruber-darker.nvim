@@ -69,8 +69,8 @@ function M.setup(config)
 		TabLineSel = { fg = colors.yellow, bg = colors.bg, bold = true },
 
 		-- Popups
-		Pmenu = { fg = colors.fg, bg = colors.bg_alt },
-		PmenuSel = { fg = colors.fg, bg = colors.bg_alt },
+		Pmenu = { fg = colors.fg, bg = colors.grey },
+		PmenuSel = { fg = colors.black, bg = colors.fg },
 		PmenuSbar = { bg = colors.grey },
 		PmenuThumb = { bg = colors.black },
 		NormalFloat = { fg = colors.fg, bg = colors.bg_alt },
