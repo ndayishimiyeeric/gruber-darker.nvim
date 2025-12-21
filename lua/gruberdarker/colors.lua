@@ -20,17 +20,17 @@ local M = {}
 M.default = {
     bg = "#191919",
     bg_alt = "#202020",
-    fg = "#ffffff",
+    fg = "#e4e4ef",
     red = "#c73c3f",
     black = "#101010",
-    green = "#7CC138",
+    green = "#73c936",
     yellow = "#ffdd33",
     brown = "#cc8c3c",
-    quartz = "#95a99f",
+    quartz = "#a0b2a9",
     grey = "#545454",
     grey_alt = "#303030",
-    niagara = "#96a6c8",
-    wisteria = "#afafda",
+    niagara = "#788cb8",
+    wisteria = "#9e95c7",
 }
 
 return M
