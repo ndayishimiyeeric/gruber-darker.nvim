@@ -31,9 +31,9 @@ function M.get(options, palette)
         Added = { fg = palette.green },
         Removed = { fg = palette.red },
 
-        Search = { fg = palette.black, bg = palette.niagara },
-        IncSearch = { fg = palette.black, bg = palette.niagara },
-        CurSearch = { fg = palette.black, bg = palette.niagara },
+        Search = { fg = palette.bg_alt, bg = palette.niagara },
+        IncSearch = { fg = palette.bg_alt, bg = palette.niagara },
+        CurSearch = { fg = palette.bg_alt, bg = palette.niagara },
         Substitute = { fg = palette.fg, bg = palette.red },
 
         ErrorMsg = { fg = palette.red },
@@ -55,16 +55,15 @@ function M.get(options, palette)
         TabLineFill = { bg = palette.bg_alt },
         TabLineSel = { fg = palette.yellow, bg = palette.bg, bold = options.bold },
 
-        Pmenu = { fg = palette.fg, bg = palette.bg_alt },
-        PmenuSel = { fg = palette.black, bg = palette.fg },
-        PmenuSbar = { bg = palette.grey },
-        PmenuThumb = { bg = palette.black },
-        NormalFloat = { fg = palette.fg, bg = palette.bg_alt },
+        Pmenu = { fg = palette.fg, bg = palette.black },
+        PmenuSel = { fg = palette.black, bg = palette.niagara },
+        PmenuSbar = { bg = palette.black },
+        PmenuThumb = { bg = palette.grey_alt },
+        NormalFloat = { fg = palette.fg, bg = nil },
         FloatBorder = { fg = palette.grey },
-        -- FloatTitle
 
-        Visual = { bg = palette.grey_alt },
-        VisualNOS = { bg = palette.grey_alt },
+        Visual = { bg = palette.niagara },
+        VisualNOS = { fg = palette.fg },
 
         Directory = { fg = palette.niagara, bold = options.bold },
         NonText = { fg = palette.grey },
@@ -134,9 +133,6 @@ function M.get(options, palette)
         DiagnosticUnderlineWarn = { sp = palette.yellow, undercurl = true },
         DiagnosticUnderlineInfo = { sp = palette.niagara, undercurl = true },
         DiagnosticUnderlineHint = { sp = palette.green, undercurl = true },
-
-        YankyPut = { link = "Visual" },
-        YankyYanked = { link = "Visual" },
     }
 
     return highlights
