@@ -14,11 +14,13 @@ local M = {}
 ---@field transparent? boolean
 ---@field italic_comments? boolean
 ---@field terminal_colors? boolean
+---@field bold? boolean
 ---@field extensions? gruberdarker.Extensions
 local default_options = {
     transparent = false,
     italic_comments = false,
     terminal_colors = true,
+    bold = false,
     extensions = {
         treesitter = true,
         gitsigns = true,
