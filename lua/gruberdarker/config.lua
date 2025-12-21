@@ -10,6 +10,7 @@ local M = {}
 ---@field leap? boolean
 ---@field dashboard? boolean
 ---@field snacks? boolean
+---@field blink? boolean
 
 ---@class gruberdarker.Config
 ---@field transparent? boolean
@@ -32,6 +33,7 @@ local default_options = {
         leap = true,
         dashboard = true,
         snacks = true,
+        blink = true,
     },
 }
 
