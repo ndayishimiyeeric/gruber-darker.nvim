@@ -9,6 +9,7 @@ local M = {}
 ---@field hop? boolean
 ---@field leap? boolean
 ---@field dashboard? boolean
+---@field snacks? boolean
 
 ---@class gruberdarker.Config
 ---@field transparent? boolean
@@ -30,6 +31,7 @@ local default_options = {
         hop = true,
         leap = true,
         dashboard = true,
+        snacks = true,
     },
 }
 
