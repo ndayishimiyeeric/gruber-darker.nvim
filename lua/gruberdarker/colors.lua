@@ -1,6 +1,7 @@
 ---@class gruberdarker.Palette
 ---@field bg? string
----@field bg_alt? string
+---@field bg2? string
+---@field bg3? string
 ---@field fg? string
 ---@field red? string
 ---@field black? string
@@ -8,8 +9,8 @@
 ---@field yellow? string
 ---@field brown? string
 ---@field quartz? string
----@field grey? string
----@field grey_alt? string
+---@field gray? string
+---@field gray2? string
 ---@field niagara? string
 ---@field wisteria? string
 
@@ -19,7 +20,8 @@ local M = {}
 
 M.default = {
     bg = "#191919",
-    bg_alt = "#202020",
+    bg2 = "#282828",
+    bg3 = "#32302f",
     fg = "#e4e4ef",
     red = "#c73c3f",
     black = "#101010",
@@ -27,10 +29,12 @@ M.default = {
     yellow = "#ffdd33",
     brown = "#cc8c3c",
     quartz = "#a0b2a9",
-    grey = "#545454",
-    grey_alt = "#303030",
+    gray = "#545454",
+    gray2 = "#303030",
     niagara = "#788cb8",
     wisteria = "#9e95c7",
 }
+
+-- #606060 #808080 #737373b3 #453d41
 
 return M

@@ -10,11 +10,10 @@ function M.setup()
     local palette = colors.default
 
     if options.transparent then
-        palette.bg = "NONE"
+        palette.bg = nil
     end
 
     if options.terminal_colors then
-        vim.o.termguicolors = true
         vim.g.terminal_color_0 = palette.bg
         vim.g.terminal_color_1 = palette.red
         vim.g.terminal_color_2 = palette.green
@@ -23,7 +22,7 @@ function M.setup()
         vim.g.terminal_color_5 = palette.wisteria
         vim.g.terminal_color_6 = palette.quartz
         vim.g.terminal_color_7 = palette.fg
-        vim.g.terminal_color_8 = palette.grey
+        vim.g.terminal_color_8 = palette.gray
         vim.g.terminal_color_9 = palette.red
         vim.g.terminal_color_10 = palette.green
         vim.g.terminal_color_11 = palette.yellow

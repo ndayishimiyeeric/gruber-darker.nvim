@@ -9,7 +9,7 @@ function M.get(options, palette)
         HopNextKey = { fg = palette.yellow, bold = true },
         HopNextKey1 = { fg = palette.green, bold = true },
         HopNextKey2 = { fg = palette.niagara },
-        HopUnmatched = { fg = palette.grey },
+        HopUnmatched = { fg = palette.gray },
     }
     return highlights
 end

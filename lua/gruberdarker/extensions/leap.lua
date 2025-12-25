@@ -9,7 +9,7 @@ function M.get(options, palette)
         LeapMatch = { fg = palette.yellow, bold = true },
         LeapLabelPrimary = { fg = palette.black, bg = palette.yellow, bold = true },
         LeapLabelSecondary = { fg = palette.black, bg = palette.green, bold = true },
-        LeapBackdrop = { fg = palette.grey },
+        LeapBackdrop = { fg = palette.gray },
     }
     return highlights
 end

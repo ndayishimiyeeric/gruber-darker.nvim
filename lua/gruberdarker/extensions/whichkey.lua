@@ -10,7 +10,7 @@ function M.get(options, palette)
         WhichKeyGroup = { fg = palette.niagara },
         WhichKeyDesc = { fg = palette.fg },
         WhichKeySeparator = { fg = palette.brown },
-        WhichKeyFloat = { bg = palette.bg_alt },
+        WhichKeyFloat = { bg = palette.bg2 },
         WhichKeyValue = { fg = palette.green },
     }
     return highlights

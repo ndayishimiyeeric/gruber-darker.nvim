@@ -6,9 +6,9 @@ function M.get(options, palette)
     options = options or {}
     ---@type table<string, vim.api.keyset.highlight>
     local highlights = {
-        IndentBlanklineChar = { fg = palette.grey },
-        IndentBlanklineContextChar = { fg = palette.grey },
-        IndentBlanklineContextStart = { sp = palette.grey, underline = true },
+        IndentBlanklineChar = { fg = palette.gray },
+        IndentBlanklineContextChar = { fg = palette.gray },
+        IndentBlanklineContextStart = { sp = palette.gray, underline = true },
     }
     return highlights
 end
